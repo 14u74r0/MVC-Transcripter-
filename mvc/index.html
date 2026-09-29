@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Transcripter</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .box { border: 1px solid #a32222; padding: 20px; margin-bottom: 20px; }
+        button { padding: 10px 20px; margin-top: 10px; }
+        button:hover { background-color: #a9a7a7; cursor: pointer; }
+        .resultado { margin-top: 20px; padding: 10px; border: 1px solid #a9a7a7; background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <h1>
+        Audio Transcripter with AI :D
+    </h1>
+    <p>Upload your audio file (mp3, WAV, M4A) below:</p>
+    <form class="box" method="POST" enctype="multipart/form-data">
+        <input type="file" id="audioFile" name="audio_file" accept=".mp3, .wav, .m4a, .ogg" required>
+        <button id="transcribeBtn" type="submit">Transcribe</button>
+    </form>
+
+    {% if text_transcription %}
+        <div class="resultado">
+            <h3>Transcribed Text:</h3>
+            <p>{{ text_transcription }}</p>
+        </div>
+    {% endif %}
+    
+</body>
+</html>
